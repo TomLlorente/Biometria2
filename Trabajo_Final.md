@@ -3,12 +3,96 @@ Trabajo_Final
 Grupo_14
 2024-11-13
 
-# Cargar librerías
+# Introducción
 
-\#Exploracion del data frame
+La producción de comportamientos complejos implica una interacción
+profunda entre el sistema nervioso, los sistemas periféricos y el
+entorno. Un ejemplo de ello es el canto de las aves oscinas (aves que
+aprenden su canto de un tutor), que surge de instrucciones neuronales
+que coordinan el sistema respiratorio y el aparato vocal. Las aves
+oscinas son un modelo útil para estudiar la base neuronal del
+aprendizaje y producción de vocalizaciones complejas.  
+El “sistema del canto” es un circuito de núcleos cerebrales
+especializado en la ejecución y aprendizaje del canto (Nottebohm et al.,
+1982; Wild, 2004), el cual diferencia aves oscinas de aquellas que no
+aprenden su canto socialmente (Kroodsma & Konishi, 1991). Dentro de este
+sistema, el núcleo telencefálico HVC ha recibido especial atención por
+su rol en la percepción y producción del canto (Brenowitz, 1991; Gentner
+et al., 2000). En HVC se identificaron por primera vez neuronas
+selectivas al canto propio (BOS, por sus siglas en inglés Bird’s Own
+Song), que responden con mayor intensidad al canto propio que a otros
+estímulos auditivos, sean simples o tan complejos como el canto de un
+individuo de la misma especie (Margoliash, 1983, 1985; Margoliash &
+Fortune, 1992). Esta selectividad también se observa durante el sueño y
+bajo diferentes tipos de anestesia (Doupe, 1997; Mooney, 2000), aunque
+las respuestas en vigilia suelen ser menos selectivas que durante el
+sueño (Rauske et al., 2003).  
+Nuestro modelo animal es el canario doméstico, Serinus canaria. Su canto
+presenta una estructura compleja, compuesta por la repetición de sílabas
+conformadas por 1 o 2 notas. Los canarios macho tienen un repertorio de
+20 a 30 frases, aunque solo una parte se presenta en cada canto, siendo
+más probables unas que otras (Lehongre et al., 2008). El conjunto de
+frases que canta con mayor probabilidad se denomina BOS (Bird’s Own
+Song, canto propio). Si bien algunas frases se producen en un orden
+relativamente fijo, el repertorio no es rígido y varía entre individuos,
+con algunas frases específicas de cada ave y otras compartidas entre
+machos en el mismo o diferente aviario (Lehongre et al., 2009). Esto
+hace del canario una especie muy interesante para estudiar, dada la
+complejidad de su canto.  
+Pocos estudios han evaluado si el estímulo BOS evoca consistentemente
+excitación en el HVC de canarios despiertos en estado de reposo y si
+esta respuesta posee las mismas características observadas en otras
+especies. Los registros neuronales en canarios durante la vigilia datan
+de hace 30 años, en los inicios de la neurociencia en aves canoras
+(McCasland & Konishi, 1981).  
+Nuestro objetivo será testear, estadísticamente, si las neuronas en HVC
+de Serinus canaria poseen respuestas selectivas al BOS respecto de otros
+estímulos (CON y REV), tal cual se observó en otras aves canoras,
+teniendo en cuenta la similitud posible entre cantos de distintos
+individuos de la especie.  
+Hipótesis y predicciones
+
+# Métodos
+
+## Métodos experimentales
+
+Se realizaron registros de actividad neuronal extracelular en el núcleo
+HVC de canarios macho (Serinus canaria) despiertos y en libre
+comportamiento (N=5). Se utilizó un arreglo de tetrodos manualmente
+ajustable que permitió registros crónicos en profundidades variables (0
+y +23.5 micrómetros), con cuatro tetrodos en cada sitio.  
+Los estímulos auditivos reproducidos incluyeron 20 presentaciones
+aleatorizadas de:  
+1. BOS (Bird’s Own Song): grabación del propio canto del ave,
+determinado identificando las frases más comunes del individuo de un
+total de 100 grabaciones (tratamiento)  
+2. CON: canto de un conspecífico (otro individuo de la misma especie),
+seleccionado con el criterio de que sea lo más diferente posible al BOS
+(control 1)  
+3. REV: BOS invertido temporalmente, conserva la estructura espectral
+(control 2).  
+Preprocesamiento de los datos
+
+• La señal de voltaje de cada tetrodo fue filtrada para aislar las
+espigas neuronales de las oscilaciones lentas.  
+• Los disparos neuronales fueron detectados mediante un umbral mínimo y
+se analizaron con histogramas y curvas de densidad de probabilidad
+(kernel).  
+• La actividad basal se definió como la mediana de los valores de las
+curvas en los silencios previos al estímulo, y se consideró respuesta
+positiva a la actividad neuronal que duplica la actividad basal durante
+el canto.  
+• Se calculó la proporción de frases con respuesta neuronal sobre el
+total de frases para cada estímulo.
+
+# Análisis estadísticos
+
+# Resultados
+
+# Exploracion del data frame
 
 ``` r
-str(conteo_frases) #¿cuál es la estructura de la base?
+str(conteo_frases) # ¿cuál es la estructura de la base?
 ```
 
     ## tibble [93 × 7] (S3: tbl_df/tbl/data.frame)
@@ -21,19 +105,19 @@ str(conteo_frases) #¿cuál es la estructura de la base?
     ##  $ Frases_total: num [1:93] 11 12 11 11 12 11 11 12 11 11 ...
 
 ``` r
-class(conteo_frases) #qué tipo de objeto es?
+class(conteo_frases) # qué tipo de objeto es?
 ```
 
     ## [1] "tbl_df"     "tbl"        "data.frame"
 
 ``` r
-dim(conteo_frases) #qué dimensiones tiene?
+dim(conteo_frases) # qué dimensiones tiene?
 ```
 
     ## [1] 93  7
 
 ``` r
-head(conteo_frases) #muestra las primeras filas
+head(conteo_frases) # muestra las primeras filas
 ```
 
     ## # A tibble: 6 × 7
@@ -47,7 +131,7 @@ head(conteo_frases) #muestra las primeras filas
     ## 6 VioAzu     2           0       2 REV           0           11
 
 ``` r
-tail(conteo_frases) # muestra las últimas
+tail(conteo_frases) #  muestra las últimas
 ```
 
     ## # A tibble: 6 × 7
@@ -61,7 +145,7 @@ tail(conteo_frases) # muestra las últimas
     ## 6 VioVio     8        23.5       4 REV           3           11
 
 ``` r
-summary(conteo_frases) #resume a cada variable
+summary(conteo_frases) # resume a cada variable
 ```
 
     ##      Ave                 MUA          Profundidad        Tetrodo     
@@ -79,7 +163,7 @@ summary(conteo_frases) #resume a cada variable
     ##                     3rd Qu.: 4.000   3rd Qu.:14.00  
     ##                     Max.   :11.000   Max.   :14.00
 
-\#Exploracion preliminar de los datos
+# Exploracion preliminar de los datos
 
 # Calcular la Proporcion de conteo por frases totales
 
@@ -92,14 +176,14 @@ conteo_frases <- conteo_frases %>%
 
 ``` r
 ggplot(conteo_frases, aes(x = Estímulo, y = Proporcion, group = interaction(Profundidad, Tetrodo, Ave), color = Ave)) +
-  geom_line() +  # Líneas que conectan los puntos para cada combinación de Ave, Profundidad y Tetrodo
-  geom_point() +  # Puntos para cada estímulo
+  geom_line() +  #  Líneas que conectan los puntos para cada combinación de Ave, Profundidad y Tetrodo
+  geom_point() +  #  Puntos para cada estímulo
   labs(title = "Proporciones de Conteo por Estímulo",
        x = "Estímulo",
        y = "Proporcion (Conteo / Frases Totales)",
        color = "Ave") +
-  theme_minimal() +  # Tema para estética del gráfico
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotación de etiquetas en x para legibilidad
+  theme_minimal() +  #  Tema para estética del gráfico
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  #  Rotación de etiquetas en x para legibilidad
 ```
 
 ![](Trabajo_Final_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
@@ -110,7 +194,7 @@ ggplot(conteo_frases, aes(x = Estímulo, y = Proporcion, group = interaction(Pro
 conteo_frases$NR <- conteo_frases$Frases_total - conteo_frases$Conteo
 ```
 
-#### Modelo con interaccion
+## \## Modelo con interaccion
 
 # Ajustar el modelo con una distribución beta-binomial (Modelo con interaccion)
 
@@ -125,7 +209,7 @@ m1 <- glmmTMB(
 # Verificar si hay sobre- o subdispersión
 
 ``` r
-rp1 <- resid(m1, type = "pearson") # residuos de Pearson
+rp1 <- resid(m1, type = "pearson") #  residuos de Pearson
 pearson_chisq1 <- sum(rp1^2) 
 df_res1 <- m1$df.residual
 dispersion_ratio1 <- pearson_chisq1 / df_res1
@@ -134,7 +218,7 @@ dispersion_ratio1
 
     ## numeric(0)
 
-\#PH para sobredispersion chi2
+# PH para sobredispersion chi2
 
 ``` r
 check_overdispersion(m1)
@@ -147,7 +231,7 @@ check_overdispersion(m1)
 
     ## No overdispersion detected.
 
-\#Supuestos con Dharma
+# Supuestos con Dharma
 
 ``` r
 simulationOutput1 <- simulateResiduals(fittedModel = m1, plot = T)
@@ -185,7 +269,7 @@ shapiro.test(rp1)
     ## data:  rp1
     ## W = 0.93543, p-value = 0.0001824
 
-\#Miro resultados
+Observación de resultados
 
 ``` r
 summary(m1)
@@ -299,9 +383,9 @@ Anova(m1, type = "III")
 alfai1 <- ranef(m1)
 ```
 
-### QQ plot
+## QQ plot
 
-# Crear un QQ Plot con título y etiquetas personalizadas para los ejes
+Crear un QQ Plot con título y etiquetas personalizadas para los ejes
 
 ``` r
 car::qqPlot(alfai1$cond$Ave$`(Intercept)`,
@@ -729,7 +813,8 @@ Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
 </tr>
 </table>
 
-# Ajustar el modelo con una distribución beta-binomial (Interaccion estimulo, profundidad)
+Ajustar el modelo con una distribución beta-binomial (Interaccion
+estimulo, profundidad)
 
 ``` r
 m2 <- glmmTMB(
@@ -739,10 +824,10 @@ m2 <- glmmTMB(
 )
 ```
 
-# Verificar si hay sobre- o subdispersión
+Verificar si hay sobre- o sub-dispersión
 
 ``` r
-rp2 <- resid(m2, type = "pearson") # residuos de Pearson
+rp2 <- resid(m2, type = "pearson") #  residuos de Pearson
 pearson_chisq2 <- sum(rp2^2) 
 df_res2 <- m2$df.residual
 dispersion_ratio2 <- pearson_chisq2 / df_res2
@@ -751,7 +836,7 @@ dispersion_ratio2
 
     ## numeric(0)
 
-\#PH para sobredispersion chi2
+PH para sobredispersion chi2
 
 ``` r
 check_overdispersion(m2)
@@ -764,7 +849,7 @@ check_overdispersion(m2)
 
     ## No overdispersion detected.
 
-\#Supuestos con Dharma
+Supuestos para usar Dharma
 
 ``` r
 simulationOutput2 <- simulateResiduals(fittedModel = m2, plot = T)
@@ -792,7 +877,7 @@ testDispersion(simulationOutput2)
     ## dispersion = 0.83363, p-value = 0.392
     ## alternative hypothesis: two.sided
 
-\#Miro resultados
+Observación de resultados
 
 ``` r
 summary(m2)
@@ -850,7 +935,7 @@ Anova(m2, type = "III")
 alfai2 <- ranef(m2)
 ```
 
-### QQ plot
+## QQ plot
 
 # Crear un QQ Plot con título y etiquetas personalizadas para los ejes
 
@@ -1070,7 +1155,7 @@ Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
 </tr>
 </table>
 
-### Modelo aditivo
+## \# Modelo aditivo
 
 ``` r
 m3 <- glmmTMB(
@@ -1083,7 +1168,7 @@ m3 <- glmmTMB(
 # Verificar si hay sobre- o subdispersión
 
 ``` r
-rp3 <- resid(m3, type = "pearson") # residuos de Pearson
+rp3 <- resid(m3, type = "pearson") #  residuos de Pearson
 pearson_chisq3 <- sum(rp3^2) 
 df_res3 <- m3$df.residual
 dispersion_ratio3 <- pearson_chisq3 / df_res3
@@ -1092,7 +1177,7 @@ dispersion_ratio3
 
     ## numeric(0)
 
-\#PH para sobredispersion chi2
+# PH para sobredispersion chi2
 
 ``` r
 check_overdispersion(m3)
@@ -1105,7 +1190,7 @@ check_overdispersion(m3)
 
     ## No overdispersion detected.
 
-\#Supuestos con Dharma
+# Supuestos con Dharma
 
 ``` r
 simulationOutput3 <- simulateResiduals(fittedModel = m3, plot = T)
@@ -1133,7 +1218,7 @@ testDispersion(simulationOutput3)
     ## dispersion = 0.83751, p-value = 0.48
     ## alternative hypothesis: two.sided
 
-\#Miro resultados
+Observación de resultados
 
 ``` r
 summary(m3)
@@ -1188,7 +1273,7 @@ Anova(m3, type = "III")
 alfai3 <- ranef(m3)
 ```
 
-### QQ plot
+## \# QQ plot
 
 # Crear un QQ Plot con título y etiquetas personalizadas para los ejes
 
@@ -1380,7 +1465,7 @@ Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
 </tr>
 </table>
 
-\#Comparacion de modelos
+# Comparacion de modelos
 
 ``` r
 AIC(m1, m2, m3)
@@ -1530,3 +1615,49 @@ ggplot(estad, aes(x = Estímulo, y = prob)) +
 ```
 
 ![](Trabajo_Final_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+
+# Discusión
+
+Referencias  
+Brenowitz E. A. (1991). Altered perception of species-specific song by
+female birds after lesions of a forebrain nucleus. Science (New York,
+N.Y.), 251(4991), 303–305. <https://doi.org/10.1126/science.1987645>  
+Doupe, A. J. and Solis, M. M. Song (1997) And order-selective neurons
+develop in the songbird anterior forebrain during vocal learning. J
+Neurobiol, 33(5):694–709  
+Gentner, T.Q., Hulse, S.H., Bentley, G.E., Ball, G.F. (2000). Individual
+vocal recognition and the effect of partial lesions to HVc on
+discrimination, learning, and categorization of conspecific song in
+adult songbirds. J. Neurobiol. 42, 117–133.  
+Kroodsma D, Konishi M. (1991). A suboscine bird (eastern phoebe,
+Sayornis phoebe) develops normal song without auditory feedback. Anim
+Behav 42: 477–484.  
+Lehongre, K., Aubin, T., Robin, S., Del Negro, C., (2008). Individual
+signature in canary songs: contribution of multiple levels of song
+structure. Ethology 114, 425–435.  
+Lehongre, K., Del Negro, C., (2009). Repertoire sharing and auditory
+responses in the HVC of the canary. Neuroreport 20, 202–206.  
+Margoliash, D. (1983). Acoustic parameters underlying the responses of
+song-specific neurons in the white-crowned sparrow. Journal of
+Neuroscience, 3(5), 1039-1057.  
+Margoliash, D., and Fortune, E. S. (1992). Temporal and harmonic
+combination-sensitive neurons in the zebra finch’s HVc. Journal of
+Neuroscience, 12(11), 4309-4326.  
+Margoliash, D., and Konishi, M. (1985). Auditory representation of
+autogenous song in the song system of white-crowned sparrows.
+Proceedings of the National Academy of Sciences, 82(17), 5997-6000.  
+McCasland, J. S., and Konishi, M. (1981). Interaction between auditory
+and motor activities in an avian song control nucleus. Proceedings of
+the National Academy of Sciences, 78(12), 7815-7819.  
+Mooney, R. (2000). Different subthreshold mechanisms underlie song
+selectivity in identified hvc neurons of the zebra finch. J Neurosci,
+20(14):5420–36  
+Nottebohm, F., Kelley, D. B. and Paton, J. A. (1982). Connections of
+vocal control nuclei in the canary telencephalon. J. Comp. Neurol. 207,
+344–357  
+Rauske PL, Shea SD, Margoliash D. State and neuronal class-dependent
+reconfiguration in the avian song system. J Neurophysiol.
+2003;89:1688–1701. doi: 10.1152/jn.00655.2002. \[DOI\] \[PubMed\]
+\[Google Scholar\]  
+Wild JM. (2004). Functional neuroanatomy of the sensorimotor control of
+singing. Ann N Y Acad Sci 1016: 438–462.
