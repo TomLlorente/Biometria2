@@ -3,6 +3,29 @@ Trabajo_Final
 Grupo_14
 2024-11-13
 
+# Abstract
+
+Los Modelos Lineales Generalizados han permitido abordar los más
+diversos temas en Biología, ya que abren un abanico de modelos para
+estudiar relaciones. Cada tema en Biología puede tener un modelo
+asociado y es separable en variables o cantidades, que pueden ser
+clasificadas según su distribución de probabilidad. En este trabajo se
+abordó la percepción de estímulos auditivos dentro de una especie de
+aves. En particular, se estudiaron algunas propiedades del estímulo
+sonoro (si contiene o no ciertos patrones), y su relación con la
+respuesta del ave receptora. Dado que la forma de medir la respuesta es
+a nivel neuronal y depende de algunas variables técnicas, también se
+incluyó en el modelo a estas variables. Entonces, se buscó una relación
+entre la presencia de los patrones sonoros (Estímulo), las variables
+técnicas y la respuesta en las aves receptoras, pero sólo se halló
+evidencia significativa para la presencia de patrones (dentro de éstos,
+para el canto del propio ave). No fue significativa para patrones
+conteniendo otras combinaciones de elementos sonoros, ni lo fue para
+distintas combinaciones de las variables técnicas. Lo encontrado está
+dentro de lo esperado biológicamente, y existe la posibilidad que alguna
+de las variables explicativas pueda ser significativa, al experimentar
+con mayor cantidad de Aves.
+
 # Introducción
 
 La producción de comportamientos complejos implica una interacción
@@ -1618,46 +1641,64 @@ ggplot(estad, aes(x = Estímulo, y = prob)) +
 
 # Discusión
 
-Referencias  
-Brenowitz E. A. (1991). Altered perception of species-specific song by
-female birds after lesions of a forebrain nucleus. Science (New York,
-N.Y.), 251(4991), 303–305. <https://doi.org/10.1126/science.1987645>  
-Doupe, A. J. and Solis, M. M. Song (1997) And order-selective neurons
-develop in the songbird anterior forebrain during vocal learning. J
-Neurobiol, 33(5):694–709  
-Gentner, T.Q., Hulse, S.H., Bentley, G.E., Ball, G.F. (2000). Individual
-vocal recognition and the effect of partial lesions to HVc on
-discrimination, learning, and categorization of conspecific song in
-adult songbirds. J. Neurobiol. 42, 117–133.  
-Kroodsma D, Konishi M. (1991). A suboscine bird (eastern phoebe,
-Sayornis phoebe) develops normal song without auditory feedback. Anim
-Behav 42: 477–484.  
-Lehongre, K., Aubin, T., Robin, S., Del Negro, C., (2008). Individual
-signature in canary songs: contribution of multiple levels of song
-structure. Ethology 114, 425–435.  
-Lehongre, K., Del Negro, C., (2009). Repertoire sharing and auditory
-responses in the HVC of the canary. Neuroreport 20, 202–206.  
-Margoliash, D. (1983). Acoustic parameters underlying the responses of
-song-specific neurons in the white-crowned sparrow. Journal of
-Neuroscience, 3(5), 1039-1057.  
-Margoliash, D., and Fortune, E. S. (1992). Temporal and harmonic
-combination-sensitive neurons in the zebra finch’s HVc. Journal of
-Neuroscience, 12(11), 4309-4326.  
-Margoliash, D., and Konishi, M. (1985). Auditory representation of
-autogenous song in the song system of white-crowned sparrows.
-Proceedings of the National Academy of Sciences, 82(17), 5997-6000.  
-McCasland, J. S., and Konishi, M. (1981). Interaction between auditory
-and motor activities in an avian song control nucleus. Proceedings of
-the National Academy of Sciences, 78(12), 7815-7819.  
-Mooney, R. (2000). Different subthreshold mechanisms underlie song
-selectivity in identified hvc neurons of the zebra finch. J Neurosci,
-20(14):5420–36  
-Nottebohm, F., Kelley, D. B. and Paton, J. A. (1982). Connections of
-vocal control nuclei in the canary telencephalon. J. Comp. Neurol. 207,
-344–357  
-Rauske PL, Shea SD, Margoliash D. State and neuronal class-dependent
-reconfiguration in the avian song system. J Neurophysiol.
-2003;89:1688–1701. doi: 10.1152/jn.00655.2002. \[DOI\] \[PubMed\]
-\[Google Scholar\]  
-Wild JM. (2004). Functional neuroanatomy of the sensorimotor control of
-singing. Ann N Y Acad Sci 1016: 438–462.
+En este trabajo se abordó la percepción de estímulos auditivos dentro de
+una especie de aves. La forma de medir la respuesta fue a nivel
+neuronal, y la técnica dependía de algunas variables técnicas. Se buscó
+una relación entre la presencia del Estímulo, las variables técnicas y
+la respuesta en las aves receptoras, pero sólo se halló evidencia
+significativa para la presencia de patrones (dentro de éstos, para el
+canto del propio ave). No fue significativa para patrones conteniendo
+otras combinaciones de elementos sonoros, ni lo fue para distintas
+combinaciones de las variables técnicas. Lo encontrado está dentro de lo
+esperado biológicamente, aunque todavía podría existir una relación más
+similar a la del modelo inicial. Es decir, existe la posibilidad que
+alguna de las variables explicativas pueda dar resultados
+significativos, si se experimentase con mayor cantidad de Aves.
+
+# Referencias
+
+1.  Brenowitz E. A. (1991). Altered perception of species-specific song
+    by female birds after lesions of a forebrain nucleus. Science (New
+    York, N.Y.), 251(4991), 303–305.
+    <https://doi.org/10.1126/science.1987645>  
+2.  Doupe, A. J. and Solis, M. M. Song (1997) And order-selective
+    neurons develop in the songbird anterior forebrain during vocal
+    learning. J Neurobiol, 33(5):694–709  
+3.  Gentner, T.Q., Hulse, S.H., Bentley, G.E., Ball, G.F. (2000).
+    Individual vocal recognition and the effect of partial lesions to
+    HVc on discrimination, learning, and categorization of conspecific
+    song in adult songbirds. J. Neurobiol. 42, 117–133.  
+4.  Kroodsma D, Konishi M. (1991). A suboscine bird (eastern phoebe,
+    Sayornis phoebe) develops normal song without auditory feedback.
+    Anim Behav 42: 477–484.  
+5.  Lehongre, K., Aubin, T., Robin, S., Del Negro, C., (2008).
+    Individual signature in canary songs: contribution of multiple
+    levels of song structure. Ethology 114, 425–435.  
+6.  Lehongre, K., Del Negro, C., (2009). Repertoire sharing and auditory
+    responses in the HVC of the canary. Neuroreport 20, 202–206.  
+7.  Margoliash, D. (1983). Acoustic parameters underlying the responses
+    of song-specific neurons in the white-crowned sparrow. Journal of
+    Neuroscience, 3(5), 1039-1057.  
+8.  Margoliash, D., and Fortune, E. S. (1992). Temporal and harmonic
+    combination-sensitive neurons in the zebra finch’s HVc. Journal of
+    Neuroscience, 12(11), 4309-4326.  
+9.  Margoliash, D., and Konishi, M. (1985). Auditory representation of
+    autogenous song in the song system of white-crowned sparrows.
+    Proceedings of the National Academy of Sciences, 82(17),
+    5997-6000.  
+10. McCasland, J. S., and Konishi, M. (1981). Interaction between
+    auditory and motor activities in an avian song control nucleus.
+    Proceedings of the National Academy of Sciences, 78(12),
+    7815-7819.  
+11. Mooney, R. (2000). Different subthreshold mechanisms underlie song
+    selectivity in identified hvc neurons of the zebra finch. J
+    Neurosci, 20(14):5420–36  
+12. Nottebohm, F., Kelley, D. B. and Paton, J. A. (1982). Connections of
+    vocal control nuclei in the canary telencephalon. J. Comp. Neurol.
+    207, 344–357  
+13. Rauske PL, Shea SD, Margoliash D. State and neuronal class-dependent
+    reconfiguration in the avian song system. J Neurophysiol.
+    2003;89:1688–1701. doi: 10.1152/jn.00655.2002. \[DOI\] \[PubMed\]
+    \[Google Scholar\]  
+14. Wild JM. (2004). Functional neuroanatomy of the sensorimotor control
+    of singing. Ann N Y Acad Sci 1016: 438–462.
