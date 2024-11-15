@@ -1,0 +1,606 @@
+---
+title: "Trabajo_Final"
+author: "Grupo_14"
+date: "2024-11-13"
+output: github_document
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Abstract
+
+Los Modelos Lineales Generalizados son herramientas estadísticas ampliamente utilizadas en biología para explorar relaciones entre variables, permitiendo modelar distintos tipos de datos según su distribución de probabilidad.
+En este estudio, analizamos la percepción de estímulos auditivos en canarios (Serinus canaria), una especie oscina conocida por su complejidad vocal y aprendizaje del canto.
+
+El objetivo fue evaluar si las neuronas en el núcleo HVC responden selectivamente al canto propio (BOS) en comparación con otros estímulos auditivos (CON y REV).
+Utilizamos modelos estadísticos que incluyeron como variables predictoras el tipo de estímulo, junto con factores técnicos asociados al registro neuronal.
+
+Los resultados muestran que la respuesta neuronal fue significativamente mayor ante el estímulo BOS en comparación con CON y REV, tanto en la escala de odds como en la escala de respuesta directa.
+No se hallaron interacciones significativas entre el tipo de estímulo y las variables técnicas.
+Este hallazgo es consistente con estudios previos en otras especies de aves canoras y respalda la hipótesis de selectividad neuronal al canto propio.
+
+Si bien el análisis no evidenció efectos significativos de las variables técnicas, el tamaño limitado de la muestra podría haber influido en estos resultados.
+Futuros estudios con un mayor número de sujetos podrían proporcionar mayor poder estadístico y permitir la identificación de relaciones adicionales entre las variables.
+
+# Introducción
+
+La producción de comportamientos complejos implica una interacción profunda entre el sistema nervioso, los sistemas periféricos y el entorno.
+Un ejemplo de ello es el canto de las aves oscinas (aves que aprenden su canto de un tutor), que surge de instrucciones neuronales que coordinan el sistema respiratorio y el aparato vocal.
+Las aves oscinas son un modelo útil para estudiar la base neuronal del aprendizaje y producción de vocalizaciones complejas.\
+El “sistema del canto” es un circuito de núcleos cerebrales especializado en la ejecución y aprendizaje del canto (Nottebohm et al., 1982; Wild, 2004), el cual diferencia aves oscinas de aquellas que no aprenden su canto socialmente (Kroodsma & Konishi, 1991).
+Dentro de este sistema, el núcleo telencefálico HVC ha recibido especial atención por su rol en la percepción y producción del canto (Brenowitz, 1991; Gentner et al., 2000).
+En HVC se identificaron por primera vez neuronas selectivas al canto propio (BOS, por sus siglas en inglés Bird’s Own Song), que responden con mayor intensidad al canto propio que a otros estímulos auditivos, sean simples o tan complejos como el canto de un individuo de la misma especie (Margoliash, 1983, 1985; Margoliash & Fortune, 1992).
+Esta selectividad también se observa durante el sueño y bajo diferentes tipos de anestesia (Doupe, 1997; Mooney, 2000), aunque las respuestas en vigilia suelen ser menos selectivas que durante el sueño (Rauske et al., 2003).\
+Nuestro modelo animal es el canario doméstico, Serinus canaria.
+Su canto presenta una estructura compleja, compuesta por la repetición de sílabas conformadas por 1 o 2 notas.
+Los canarios macho tienen un repertorio de 20 a 30 frases, aunque solo una parte se presenta en cada canto, siendo más probables unas que otras (Lehongre et al., 2008).
+El conjunto de frases que canta con mayor probabilidad se denomina BOS (Bird’s Own Song, canto propio).
+Si bien algunas frases se producen en un orden relativamente fijo, el repertorio no es rígido y varía entre individuos, con algunas frases específicas de cada ave y otras compartidas entre machos en el mismo o diferente aviario (Lehongre et al., 2009).
+Esto hace del canario una especie muy interesante para estudiar, dada la complejidad de su canto.\
+Pocos estudios han evaluado si el estímulo BOS evoca consistentemente excitación en el HVC de canarios despiertos en estado de reposo y si esta respuesta posee las mismas características observadas en otras especies.
+Los registros neuronales en canarios durante la vigilia datan de hace 30 años, en los inicios de la neurociencia en aves canoras (McCasland & Konishi, 1981).\
+Nuestro objetivo será testear, estadísticamente, si las neuronas en HVC de Serinus canaria poseen respuestas selectivas al BOS respecto de otros estímulos (CON y REV), tal cual se observó en otras aves canoras, teniendo en cuenta la similitud posible entre cantos de distintos individuos de la especie.
+
+Para ello, se diseñó un experimento de manera de poder estudiar si existe una respuesta selectiva a ciertas partes de un impulso auditivo.
+Entonces, se aplicó un tratamiento, que tomó la forma de un impulso auditivo heterogéneo (conteniendo distintos patrones sonoros) y se midió una variable respuesta.
+
+## Hipótesis y predicciones
+
+Dado que la selectividad de las neuronas del HVC frente al canto propio (BOS, *Bird’s Own Song*) ha sido ampliamente documentada en otras especies de aves cantoras, planteamos la hipótesis de que las neuronas en el HVC de canarios machos (*Serinus canaria*) responderán con mayor frecuencia al BOS en comparación con otros estímulos auditivos, como el canto de un conespecífico (CON) o el canto propio invertido temporalmente (REV).
+Esto implicaría que los estímulos CON y REV generarían una magnitud de respuesta significativamente menor que el BOS.
+
+Para evaluar esta hipótesis, cuantificamos el número de frases que evocan una respuesta neuronal para cada estímulo, en relación con el total de frases presentes en dicho estímulo.
+Esperamos observar que una proporción significativamente mayor de frases del BOS desencadenen actividad neuronal por encima del nivel basal, en comparación con las frases de los estímulos CON y REV.
+
+# Métodos
+
+## Métodos experimentales
+
+Se realizaron registros de actividad neuronal extracelular en el núcleo HVC de canarios macho (Serinus canaria) despiertos y en libre comportamiento (N=5).
+Se utilizó un arreglo de tetrodos manualmente ajustable que permitió registros crónicos en cada sitio, en profundidades variables (0 y +23.5 micrómetros).
+Para cada tetrodo, se consideró la información de sus 4 electrodos por separado.
+
+Los estímulos auditivos reproducidos incluyeron 20 presentaciones aleatorizadas de:\
+1.
+BOS (Bird’s Own Song): grabación del propio canto del ave, determinado identificando las frases más comunes del individuo de un total de 100 grabaciones (tratamiento)\
+2.
+CON: canto de un conspecífico (otro individuo de la misma especie), seleccionado con el criterio de que sea lo más diferente posible al BOS (control 1)\
+3.
+REV: BOS invertido temporalmente, conserva la estructura espectral (control 2).
+
+## Preprocesamiento de los datos
+
+• La señal de voltaje de cada tetrodo fue filtrada para aislar las espigas neuronales de las oscilaciones lentas.
+
+• Los disparos neuronales fueron detectados mediante un umbral mínimo y se analizaron con histogramas y curvas de densidad de probabilidad (kernel).
+
+• La actividad basal se definió como la mediana de los valores de las curvas en los silencios previos al estímulo, y se consideró respuesta positiva a la actividad neuronal que duplica la actividad basal durante el canto.
+
+• Se calculó la proporción de frases con respuesta neuronal sobre el total de frases para cada estímulo.
+
+## Análisis estadísticos
+
+### Muestra analítica
+
+Variable respuesta: número de frases que evocaron respuesta neuronal/frases totales.
+Cociente de dos distribuciones cuantitativas discretas.
+Distribución de probabilidades potencial: beta.
+
+Variables explicativas: Estímulo: fija, cualitativa, con tres niveles (BOS (canto propio del ave, tratamiento), CON(canto de un individuo de otra especie, control 1), REV(canto propio revertido temporalmente, control 2).
+Profundidad: fija, cuantitativa discreta, dos valores medidos (0 y 23,5 micrones).
+Tetrodo: fija, cualitativa, cuatro niveles (tetrodos 1 a 4).
+Ave: aleatoria
+
+Anidamientos y cruzamientos: Estímulo cruzado con profundidad y tetrodo.
+
+Unidad experimental: el ave.
+
+Los datos se encuentran en el archivo conteo_frases.xlsx, contiene 105 observaciones (filas) y 6 variables (columnas).
+
+*Diccionario de variables:*
+
+“Ave”: ID del ave registrada, character.
+
+“Profundidad”: coordenada z de los electrodos, double.
+
+“Tetrodo”: número de tetrodo registrado, 1 a 4, double.
+
+“Estímulo”: BOS, CON y REV, character.
+
+“Conteo”: número de frases con respuesta, double.
+“Frases_total”: número de frases total del estímulo, double.
+
+### Carga del data.frame y librerías
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#  Cargar librerías
+
+library(dplyr)# para hacer estadística descriptiva y manipulación de bases de datos
+library(ggplot2) # para graficar
+library(gridExtra)
+library(glmmTMB) # modelos lineales generalizados
+library(emmeans) #  para hacer comparaciones
+library(DHARMa) # supuestos
+library(performance) # sobre o subdispersion
+library(readxl)
+library(car)
+library(sjPlot)
+
+conteo_frases <- read_excel("Trabajo_Final_files/conteo_frases.xlsx")
+
+```
+
+## Exploracion del data frame
+
+```{r}
+str(conteo_frases) # ¿cuál es la estructura de la base?
+class(conteo_frases) # qué tipo de objeto es?
+dim(conteo_frases) # qué dimensiones tiene?
+head(conteo_frases) # muestra las primeras filas
+tail(conteo_frases) #  muestra las últimas
+summary(conteo_frases) # resume a cada variable
+
+```
+
+## Exploracion preliminar de los datos
+
+Se realizó una exploración preliminar de los datos con el objetivo de identificar patrones generales e inferir posibles características del modelo, como la presencia o ausencia de interacciones (figura 1).
+Para ello, se calcularon las proporciones de frases que evocan una respuesta neuronal dividiendo los valores de la columna *Conteo* por los de la columna *Frases_totales*.
+Posteriormente, se generó un gráfico en el que estas proporciones se representaron, organizadas en columnas según los estímulos, y diferenciando las aves mediante colores distintos.
+Se utilizó para este plot la librería `ggplot`.
+
+## Calcular la Proporcion de conteo por frases totales
+
+```{r}
+conteo_frases <- conteo_frases %>%
+  mutate( .keep="all", Proporcion = conteo_frases$Conteo / conteo_frases$Frases_total)
+
+```
+
+## Crear el plot
+
+```{r}
+ggplot(conteo_frases, aes(x = Estímulo, y = Proporcion, group = interaction(Profundidad, Tetrodo, Ave), color = Ave)) +
+  geom_line() +  #  Líneas que conectan los puntos para cada combinación de Ave, Profundidad y Tetrodo
+  geom_point() +  #  Puntos para cada estímulo
+  labs(title = "Proporciones de Conteo por Estímulo",
+       x = "Estímulo",
+       y = "Proporcion (Conteo / Frases Totales)",
+       color = "Ave") +
+  theme_minimal() +  #  Tema para estética del gráfico
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  #  Rotación de etiquetas en x para legibilidad
+
+```
+
+**Figura 1. Exploración preliminar de los datos.**\
+Los puntos representan las proporciones individuales de frases que evocaron respuesta en relación con el total de frases presentes para cada estímulo (*BOS*, *CON* o *REV*), medidas a una profundidad y con tetrodos determinados.
+Los colores distinguen entre distintas aves.
+En general, se observa una tendencia hacia una menor proporción de frases con respuesta en los estímulos *CON* y *REV*, como se aprecia al seguir las líneas que conectan los puntos de cada ave.
+Además, se evidencian diferencias entre individuos, como en la comparación entre *VioAma* y *VioVio*.
+Con este plot no podría inferirse si hay o no interacción entre Estímulo, Profundidad y Tetrodo.
+
+Dadas las características de este set de datos, proponemos el siguiente modelo:
+
+### ***Modelo propuesto:*** 
+
+η~ijk~=μ +α~i~+β~j~+γ~k~+ αβ~ij~ + βγ~jk~ +αβγ~ijk~ +A~ijk~
+
+Donde:
+
+μ = media poblacional de las proporciones de frases que evocan respuesta / frases totales
+
+α~i~ = efecto del estímulo utilizado, con i= 1 a 3
+
+β~j~ = efecto de la profundidad en la cual se realizó la medición, j= 1 a 2
+
+γ~k~= efecto del tetrodo donde se realizó la medición, k= 1 a 4
+
+αβ~ij~ +¡y βγ~jk~ interacciones dobles (dadas por diseño)
+
+αβγ~ijk~ interacción triple (dada por diseño)
+
+A~ijk~(N,σ^2^~Ave~ ) efecto aleatorio del ave
+
+*Componente aleatorio:*
+
+Yi = Número de frases que evocan respuesta en el total de frase del canto Yi \~ Binomial (πi, n)
+
+Función de enlace:
+
+η~i~ = logit(π~i~) = ln(odds~i~) = ln(π~i~/1- π~i~)
+
+Odds = Probabilidad de frases que evoquen respuesta sobre probabilidad de frases que no evoquen respuesta.
+
+#### Creamos la variable no respuesta:
+
+```{r}
+conteo_frases$NR <- conteo_frases$Frases_total - conteo_frases$Conteo
+```
+
+## Ajuste de modelo (modelo 1)
+
+```{r}
+m1 <- glmmTMB(
+  cbind(Conteo, NR) ~ Estímulo*as.factor(Profundidad)*as.factor(Tetrodo) + (1|Ave),
+  data = conteo_frases,
+  family = binomial(link = "logit")
+)
+```
+
+### **Evaluación de supuestos:** 
+
+*Muestra aleatoria:* Garantizada por diseño.
+
+*Observaciones independientes:* Garantizadas por diseño.
+
+*Ausencia de sobre o subdispersión:* Calculamos el estadístico de dispersión (constante de proporcionalidad entre media y varianza) y utilizamos la librería performance para detectar posibles casos de sobredispersión.
+También revisamos la salida de la prueba de DHARMa.
+El modelo inicial no mostró signos de sobre o subdispersión.
+Para evaluar el ajuste del modelo, aplicamos varias pruebas de DHARMa: la prueba de buen ajuste a la distribución uniforme, prueba de dispersión, prueba de outliers y regresión de cuantiles.
+
+### Verificar si hay sobre- o subdispersión (Residuos de Pearson para el Estadistico de Dispersion)
+
+```{r}
+rp1 <- resid(m1, type = "pearson") #  residuos de Pearson
+pearson_chisq1 <- sum(rp1^2) 
+
+df_res1 <- df.residual(m1)
+
+dispersion_ratio1 <- pearson_chisq1 / df_res1
+dispersion_ratio1
+```
+
+Los residuos de Pearson arrojaron un ratio de dispersión de 1.8, lo que sugiere la presencia de posible **sobre-dispersión** en los datos.
+Esto podría explicarse por una falta de independencia entre las frases que evocan respuesta en cada población neuronal registrada.
+En otras palabras, no se ha especificado si las frases que generan respuesta son las mismas o diferentes entre observaciones, lo que podría introducir dependencias no modeladas adecuadamente.
+Asimismo, podría ser posible que la distribución binomial no sea adecuada para modelar los datos, dado que asume dispersión homogénea, lo cual podría no cumplirse en este caso.
+
+### PH para sobredispersion $Chi^{2}$
+
+```{r}
+check_overdispersion(m1)
+
+```
+
+Sin embargo, con la librería `performance` no se detectó sobredispersión.
+
+### Supuestos con Dharma
+
+Al realizar la validación de supuestos con DHARMa, se rechaza el cumplimiento de normalidad y homocedasticidad como puede observarse en la figura 2.
+
+```{r}
+simulationOutput1 <- simulateResiduals(fittedModel = m1, plot = T)
+```
+
+**Figura 2. Validación de supuestos con DHARMa para el modelo 1: QQ-plot y residuos vs predichos.**\
+El QQ-plot revela una desviación significativa de la normalidad en los residuos, particularmente en el cuantil 0.25, donde se observan discrepancias notables entre los valores predichos y los observados.
+Esta desviación sugiere posibles incumplimientos de los supuestos del modelo, como una distribución incorrecta de los residuos o problemas de ajuste.
+
+No se detectan outliers (figura 3).
+
+```{r}
+hist(simulationOutput1)
+```
+
+**Figura 3. Histograma de residuos de DHARMa para el modelo 1**, no se detectan outliers.
+
+No se detecta sobre ni subdispersión, como puede observarse en la figura 4.\
+
+```{r}
+testDispersion(simulationOutput1)
+```
+
+**Figura 4. Test de dispersión no paramétrico DHARMa para el modelo 1.**\
+El test de dispersión no paramétrico DHARMa no muestra evidencia suficiente para rechazar el supuesto de dispersión homogénea en el modelo, lo que indica que los datos se ajustan adecuadamente a este supuesto.\
+
+Por último, se evaluó el supuesto de normalidad para la variable aleatoria (aves) y no se encontró evidencia suficiente para rechazar dicho supuesto.
+
+```{r}
+# Extraer los efectos aleatorios y convertir a vector numérico
+efectos_aleatorios <- as.numeric(ranef(m1)$cond$Ave[[1]])
+
+# Realizar la prueba de normalidad Shapiro-Wilk
+shapiro_test <- shapiro.test(efectos_aleatorios)
+
+# Imprimir el resultado de la prueba de Shapiro-Wilk
+print(shapiro_test)
+
+```
+
+Esto mismo puede observarse en el QQ-plot (figura 5)
+
+```{r}
+# Obtener los efectos aleatorios
+alfai1 <- ranef(m1)
+# Realizar el QQ plot
+qqPlot(alfai1$cond$Ave$`(Intercept)`,
+       main = "QQ Plot de los Efectos Aleatorios del Ave",
+       xlab = "Cuantiles Teóricos",
+       ylab = "Cuantiles Muestrales")
+
+# Mostrar el modelo ajustado
+tab_model(m1)
+```
+
+Figura 5.
+QQ-Plot de los efectos aleatorios del ave para el modelo 1.
+No se observan desviaciones significativas de los quantiles predichos.
+
+La prueba de ajuste a la distribución uniforme fue rechazada y el cuantil de 0.25 en la regresión de cuantiles mostró una desviación significativa respecto a lo esperado.
+Dado esto, optamos por una distribución beta-binomial para modelar la variable de respuesta.
+Este cambio introduce un efecto aleatorio sobre la probabilidad de éxito, que permite capturar la heterogeneidad no observada entre las unidades de análisis, mejorando la capacidad del modelo para explicar patrones de variabilidad que no son capturados por la distribución binomial.
+Esta especificación resultó especialmente útil para ajustar las desviaciones detectadas en DHARMa, como el rechazo de la prueba de ajuste y la desviación en el cuantil de 0.25.
+Se repitieron los análisis modelando la variable de respuesta con distribución beta-binomial.
+
+### Ajuste del modelo con una distribución beta-binomial (Modelo con interaccion)
+
+```{r}
+m2 <- glmmTMB(
+  cbind(Conteo, NR) ~ Estímulo*as.factor(Profundidad)*as.factor(Tetrodo) + (1|Ave),
+  data = conteo_frases,
+  family = betabinomial(link = "logit")
+)
+```
+
+Volvemos a validar los supuestos:
+
+### Verificar si hay sobre- o subdispersión (Residuos de Pearson para el Estadistico de Dispersion)
+
+```{r}
+rp2 <- resid(m2, type = "pearson") #  residuos de Pearson
+pearson_chisq2 <- sum(rp1^2) 
+
+df_res2 <- df.residual(m2)
+
+dispersion_ratio2 <- pearson_chisq2 / df_res2
+dispersion_ratio2
+```
+
+Los residuos de Pearson arrojaron un ratio de dispersión de 1.8, lo que sugiere la presencia de posible **sobre-dispersión** en los datos.
+
+### PH para sobredispersion $Chi^{2}$
+
+```{r}
+check_overdispersion(m2) 
+```
+
+Sin embargo, con la librería `performance` no se detectó sobredispersión.
+
+### Supuestos con Dharma
+
+Al realizar la validación de supuestos con DHARMa, no se rechazan el cumplimiento de normalidad y homocedasticidad como puede observarse en la figura 6.
+
+```{r}
+simulationOutput2 <- simulateResiduals(fittedModel = m2, plot = T)
+```
+
+**Figura 6. Validación de supuestos con DHARMa para el modelo 2: QQ-plot y residuos vs predichos.**\
+El QQ-plot no revela una desviación significativa de la normalidad en los residuos, tampoco el gráfico de residuos vs predichos.
+
+Tampoco se detectan outliers (figura 7).
+
+```{r}
+hist(simulationOutput2)
+```
+
+**Figura 7. Histograma de residuos de DHARMa para el modelo 2**, no se detectan outliers.
+
+No se detecta sobre ni subdispersión, como puede observarse en la figura 8.
+
+```{r}
+testDispersion(simulationOutput2)
+```
+
+**Figura 8. Test de dispersión no paramétrico DHARMa para el modelo 2**
+
+\
+El test de dispersión no paramétrico DHARMa no muestra evidencia suficiente para rechazar el supuesto de dispersión homogénea en el modelo, lo que indica que los datos se ajustan adecuadamente a este supuesto.
+
+Por último, se evaluó el supuesto de normalidad para la variable aleatoria (aves) y no se encontró evidencia suficiente para rechazar dicho supuesto.
+
+```{r}
+# Extraer los efectos aleatorios y convertir a vector numérico 
+efectos_aleatorios <- as.numeric(ranef(m2)$cond$Ave[[1]])  
+# Realizar la prueba de normalidad Shapiro-Wilk 
+shapiro_test <- shapiro.test(efectos_aleatorios)  
+# Imprimir el resultado de la prueba de Shapiro-Wilk 
+print(shapiro_test) 
+```
+
+Esto mismo puede observarse en el QQ-plot (figura 9)
+
+```{r}
+# Obtener los efectos aleatorios
+alfai1 <- ranef(m2)
+# Realizar el QQ plot
+qqPlot(alfai1$cond$Ave$`(Intercept)`,             
+       main = "QQ Plot de los Efectos Aleatorios del Ave",            
+       xlab = "Cuantiles Teóricos",             
+       ylab = "Cuantiles Muestrales")
+
+# Mostrar el modelo ajustado
+tab_model(m2)
+```
+
+**Figura 9. QQ-Plot de los efectos aleatorios del ave para el modelo 2.** No se observan desviaciones significativas de los quantiles predichos.
+
+Habiendo validado todos los supuestos, ahora se presentan los resultados obtenidos del modelado:
+
+### Observación de Resultados
+
+Dado que la variable explicativa "estímulo" tiene tres niveles, no utilizamos directamente el `summary` para evaluar significancias.
+Sin embargo, esta información permitiría detectar posibles anomalías en los errores estándar, lo cual no fue observado en nuestro caso.
+
+```{r}
+summary(m2)
+
+```
+
+Al revisar el `summary`, no se detectó ningún error estándar que sugiriera problemas en el modelado.
+
+Para evaluar las significancias, se utilizó el análisis de varianza (ANOVA).
+
+```{r}
+Anova(m2, type = "III")
+
+```
+
+En el análisis de ANOVA, primero evaluamos la interacción triple entre Estímulo, Profundidad y Tetrodo.
+Esta interacción no resultó ser significativa (p-valor \> 0.01), por lo que continuamos evaluando las interacciones dobles (Estímulo-Profundidad, Estímulo-Tetrodo, Profundidad-Tetrodo).
+Ninguna de estas interacciones fue significativa (p-valor \> 0.01).
+A pesar de que las interacciones no fueron significativas, no las descartaremos del modelo, ya que están determinadas por el diseño experimental.
+Además, dado el bajo número de unidades muestrales (N = 5), es posible que la prueba no haya tenido suficiente potencia para detectar la significancia de estas interacciones.
+
+Procedimos a analizar los efectos simples.
+Entre ellos, la única variable explicativa significativa fue "estímulo", ya que "Tetrodo" y "Profundidad" no mostraron diferencias significativas.
+Esto sugiere que al menos uno de los estímulos difiere de los demás, por lo que realizamos un análisis post-hoc (Tukey) utilizando la librería `emmeans` para identificar qué estímulo es el que difiere del resto.
+
+### Comparaciones de medias marginales (Tukey) para Estímulo
+
+Realizamos las comparaciones primero en la escala Odds (probabilidad de frases que evoquen respuesta/probabilidad de frases que no evocan respuesta) y luego en escala de la variable respuesta, ambas interpretables.
+
+**Comparaciones en la escala Odds**
+
+Al comparar los odds de diferentes grupos, podemos obtener el **odds ratio**, el cual indica cuántas veces más probable es que una respuesta neuronal ocurra bajo un estímulo en comparación con otro.
+
+```{r}
+Comp <- emmeans(m2, pairwise ~ Estímulo, adjust = "tukey", type = "link")
+summary(Comp)
+
+```
+
+Al observar las significancias de las comparaciones, podemos notar que los contrastes **BOS-CON** y **BOS-REV** son significativos, mientras que el contraste **CON-REV** no lo es.
+Esto indica que el **BOS** (canto propio) evoca una respuesta neuronal que difiere significativamente de los controles (**CON** y **REV**), los cuales, además, no muestran diferencias significativas entre sí.
+
+Al revisar los intervalos de confianza de estas comparaciones, podemos interpretar que existe entre un **70% y 170%** más de probabilidad de que una frase evoque una respuesta neuronal en el **BOS** en comparación con el **CON** o el **REV**, con un 95% de confianza.
+
+Esto puede ser observado gráficamente utilizando también la librería `emmeans` (figura 10)
+
+```{r}
+# Crear el plot
+plot(Comp, comparisons = TRUE, 
+     main = "Comparaciones entre Estímulos", 
+     xlab = "Probabilidad de Respuesta(escala Odds)", ylab = "Estímulos") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotar etiquetas si es necesario
+```
+
+**Figura 10. Comparaciones a posteriori de Tukey.** Plot de `emmeans` para observar las diferencias entre los estímulos en la escala de Odds.
+Las comparaciones indican diferencias significativas entre los estímulos **BOS** (canto propio) y los estímulos de control (**CON** y **REV**), mientras que no se observa diferencia significativa entre los controles **CON** y **REV**. Las flechas representan las diferencias de estimación entre los estímulos, y los intervalos de confianza son mostrados para cada contraste.
+
+### Comparaciones en la escala original de la variable de respuesta (Proporción)
+
+```{r}
+Comp2 <- emmeans(m2, pairwise ~ Estímulo, type = "response")
+Comp2
+confint(Comp2)
+
+```
+
+### Gráfico de medias marginales con IC en escala de la respuesta
+
+```{r}
+estad <- as.data.frame(Comp2$emmeans)
+
+#ggplot(estad, aes(x = Estímulo, y = prob)) + 
+#  geom_errorbar(aes(ymin = asymp.LCL, ymax = asymp.UCL), width = 0.1) +
+#  geom_point(colour = "blue", size = 3) +
+#  ylab("Proporcion estimada de frases con respuesta") + 
+#  theme_grey(base_size = 16) +
+#  annotate("text", x = c(1, 2, 3), y = c(0.8, 0.9, 0.7), label = c("A", "B", "B"))
+
+
+
+
+```
+
+# Discusión
+
+En este estudio, analizamos la respuesta neuronal en el HVC de canarios macho ante distintos estímulos auditivos para evaluar la selectividad al canto propio (BOS) frente a otros tipos de estímulos (CON y REV).
+Los resultados indican que, aunque las interacciones entre el estímulo y las variables técnicas (sitio de registro: profundidad y tetrodo) no resultaron significativas, el tipo de estímulo por sí mismo sí mostró un efecto significativo, en el cual el BOS evocó una respuesta claramente diferenciada de los otros estímulos.
+Las comparaciones post-hoc revelaron que tanto BOS-CON como BOS-REV mostraron diferencias significativas, pero no así entre CON y REV, lo cual es consistente con estudios previos que destacan la selectividad del HVC hacia el canto propio en otras especies de aves canoras.
+Este patrón se observó tanto en la escala de odds como en la variable de respuesta directa, donde se encontró que el BOS incrementó los odds de respuesta entre un 340% y 1300% respecto de los otros estímulos, reafirmando la sensibilidad del HVC al canto propio.
+Estos hallazgos coinciden con expectativas biológicas previas y sugieren que la preferencia del HVC por el BOS en canarios comparte características con la selectividad observada en otras especies oscinas.
+Sin embargo, dada la ausencia de interacciones significativas con las variables técnicas, queda abierta la posibilidad de que un aumento en el tamaño de la muestra (más aves) pueda revelar interacciones adicionales.
+En estudios futuros, ampliar la muestra podría fortalecer la comprensión de los factores que contribuyen a esta selectividad y permitir una exploración más detallada de cómo otros elementos del entorno auditivo influyen en la respuesta neuronal.
+
+Para aumentar el efecto de los términos del modelo, se podria aumentar el n de unidades experimentales, disminuir el ruido (aumentar las réplicas) o aumentar la magnitud de efecto.
+
+# Referencias
+
+1.  Brenowitz E. A.
+    (1991).
+    Altered perception of species-specific song by female birds after lesions of a forebrain nucleus.
+    Science (New York, N.Y.), 251(4991), 303–305.
+    <https://doi.org/10.1126/science.1987645>
+
+2.  Doupe, A. J.
+    and Solis, M. M. Song (1997) And order-selective neurons develop in the songbird anterior forebrain during vocal learning.
+    J Neurobiol, 33(5):694–709
+
+3.  Gentner, T.Q., Hulse, S.H., Bentley, G.E., Ball, G.F.
+    (2000).
+    Individual vocal recognition and the effect of partial lesions to HVc on discrimination, learning, and categorization of conspecific song in adult songbirds.
+    J.
+    Neurobiol.
+    42, 117–133.
+
+4.  Kroodsma D, Konishi M.
+    (1991).
+    A suboscine bird (eastern phoebe, Sayornis phoebe) develops normal song without auditory feedback.
+    Anim Behav 42: 477–484.
+
+5.  Lehongre, K., Aubin, T., Robin, S., Del Negro, C., (2008).
+    Individual signature in canary songs: contribution of multiple levels of song structure.
+    Ethology 114, 425–435.
+
+6.  Lehongre, K., Del Negro, C., (2009).
+    Repertoire sharing and auditory responses in the HVC of the canary.
+    Neuroreport 20, 202–206.
+
+7.  Margoliash, D.
+    (1983).
+    Acoustic parameters underlying the responses of song-specific neurons in the white-crowned sparrow.
+    Journal of Neuroscience, 3(5), 1039-1057.
+
+8.  Margoliash, D., and Fortune, E. S.
+    (1992).
+    Temporal and harmonic combination-sensitive neurons in the zebra finch's HVc.
+    Journal of Neuroscience, 12(11), 4309-4326.
+
+9.  Margoliash, D., and Konishi, M.
+    (1985).
+    Auditory representation of autogenous song in the song system of white-crowned sparrows.
+    Proceedings of the National Academy of Sciences, 82(17), 5997-6000.
+
+10. McCasland, J. S., and Konishi, M.
+    (1981).
+    Interaction between auditory and motor activities in an avian song control nucleus.
+    Proceedings of the National Academy of Sciences, 78(12), 7815-7819.
+
+11. Mooney, R.
+    (2000).
+    Different subthreshold mechanisms underlie song selectivity in identified hvc neurons of the zebra finch.
+    J Neurosci, 20(14):5420–36
+
+12. Nottebohm, F., Kelley, D. B.
+    and Paton, J. A.
+    (1982).
+    Connections of vocal control nuclei in the canary telencephalon.
+    J.
+    Comp.
+    Neurol.
+    207, 344–357
+
+13. Rauske PL, Shea SD, Margoliash D. State and neuronal class-dependent reconfiguration in the avian song system.
+    J Neurophysiol.
+    2003;89:1688–1701.
+    doi: 10.1152/jn.00655.2002.
+    [DOI] [PubMed] [Google Scholar]
+
+14. Wild JM.
+    (2004).
+    Functional neuroanatomy of the sensorimotor control of singing.
+    Ann N Y Acad Sci 1016: 438–462.
